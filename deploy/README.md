@@ -8,7 +8,7 @@ apt install supervisor
 
 ### 配置 Supervisor
 ```
-cp www.phpmall.net_supervisor.conf /etc/supervisor/conf.d/
+cp demo.phpmall.net_supervisor.conf /etc/supervisor/conf.d/
 ```
 
 ### 启动 Supervisor
@@ -38,5 +38,15 @@ supervisorctl reload
 select-editor
 crontab -e
 # 添加计划任务
-* */1 * * * bash /home/wwwroot/www.phpmall.net/deploy.sh
+* */1 * * * bash /home/wwwroot/demo.phpmall.net/deploy.sh
+```
+
+### 清除注释
+
+```regexp
+// 清除代码注释
+^\s+?\/\/.+\n
+
+// 清除swagger注解
+^.+\#\[OA\\.+\n
 ```

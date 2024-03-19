@@ -72,13 +72,13 @@
                     "短信"
                 ],
                 "summary": "发送手机短信验证码",
-                "operationId": "c140132855974211435b91e68a966c33",
+                "operationId": "dae7391b59f293bc000c565fe4bd4c02",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "App\\Bundles\\SMS\\Requests\\SmsSendRequest"
+                                "$ref": "App\\Bundles\\Sms\\Requests\\SmsSendRequest"
                             }
                         }
                     }
