@@ -1,0 +1,146 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API文档",
+        "description": "卖家接口",
+        "contact": {
+            "name": "API Develop Team"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "/api/seller/",
+            "description": "开发环境"
+        }
+    ],
+    "paths": {
+        "/dashboard": {
+            "get": {
+                "tags": [
+                    "商家中心"
+                ],
+                "summary": "商家首页",
+                "operationId": "6ad9aae608a89e23c3250fad15ecd178",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/dashboard/menu": {
+            "get": {
+                "tags": [
+                    "商家中心"
+                ],
+                "summary": "获取管理菜单",
+                "operationId": "151febcb71d3335d3924e7d676844b46",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/dashboard/message": {
+            "get": {
+                "tags": [
+                    "商家中心"
+                ],
+                "summary": "获取系统消息",
+                "operationId": "a937e6ad2f299cd34f90d0931d3ca6d3",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/seller": {
+            "get": {
+                "tags": [
+                    "卖家管理"
+                ],
+                "summary": "全部卖家",
+                "operationId": "837582c767e52df2ea69a53e2efdc45b",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "OptionResponse": {
+                "properties": {
+                    "name": {
+                        "description": "名称",
+                        "type": "string",
+                        "example": "name"
+                    },
+                    "val": {
+                        "description": "值",
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "PaginateLinkVo": {
+                "properties": {
+                    "url": {
+                        "description": "链接URL",
+                        "type": "string"
+                    },
+                    "label": {
+                        "description": "页标签",
+                        "type": "string"
+                    },
+                    "next": {
+                        "description": "当前页",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "JWT 认证信息",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "商家中心",
+            "description": "商家中心"
+        },
+        {
+            "name": "卖家管理",
+            "description": "卖家管理"
+        }
+    ]
+}

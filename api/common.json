@@ -21,7 +21,7 @@
                     "验证码"
                 ],
                 "summary": "图片验证码",
-                "operationId": "40373a192aaf67dd3601e8d628738f39",
+                "operationId": "a785e139239a44e77684f7d505ab478f",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -42,7 +42,7 @@
                     "地区"
                 ],
                 "summary": "查询地区列表",
-                "operationId": "d82ecda64b96458659a321a118123b1a",
+                "operationId": "7ad4dc59cc0eefa982472b2ed5423756",
                 "parameters": [
                     {
                         "name": "id",
@@ -72,7 +72,7 @@
                     "短信"
                 ],
                 "summary": "发送手机短信验证码",
-                "operationId": "611f7f8be709d90688ad5110c67c5469",
+                "operationId": "f4cc2832be956cb7e6391195d27995b0",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -89,56 +89,51 @@
                     }
                 }
             }
+        },
+        "/upload": {
+            "post": {
+                "tags": [
+                    "素材"
+                ],
+                "summary": "附件上传接口",
+                "operationId": "d1ac3d195ec90e4f464849eeef6aa045",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UploadRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UploadResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
         "schemas": {
-            "LoginResponse": {
-                "properties": {
-                    "token": {
-                        "description": "token",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "CaptchaResponse": {
-                "properties": {
-                    "captcha": {
-                        "description": "图片验证码",
-                        "type": "string",
-                        "example": "123456"
-                    },
-                    "uuid": {
-                        "description": "验证码UUID",
-                        "type": "string",
-                        "example": "123456"
-                    }
-                },
-                "type": "object"
-            },
             "RegionRequest": {
                 "properties": {
                     "id": {
                         "description": "地区ID",
                         "type": "integer"
-                    }
-                },
-                "type": "object"
-            },
-            "RegionResponse": {
-                "properties": {
-                    "id": {
-                        "description": "地区ID",
-                        "type": "integer"
-                    },
-                    "name": {
-                        "description": "地区名称",
-                        "type": "string"
-                    },
-                    "first_letter": {
-                        "description": "地区名称首字母",
-                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -164,6 +159,60 @@
                         "description": "图片验证码UUID",
                         "type": "string",
                         "example": "123456"
+                    }
+                },
+                "type": "object"
+            },
+            "UploadRequest": {
+                "required": [
+                    "file"
+                ],
+                "properties": {
+                    "file": {
+                        "description": "文件",
+                        "type": "file",
+                        "format": "binary"
+                    }
+                },
+                "type": "object"
+            },
+            "CaptchaResponse": {
+                "properties": {
+                    "captcha": {
+                        "description": "图片验证码",
+                        "type": "string",
+                        "example": "123456"
+                    },
+                    "uuid": {
+                        "description": "验证码UUID",
+                        "type": "string",
+                        "example": "123456"
+                    }
+                },
+                "type": "object"
+            },
+            "RegionResponse": {
+                "properties": {
+                    "id": {
+                        "description": "地区ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "地区名称",
+                        "type": "string"
+                    },
+                    "first_letter": {
+                        "description": "地区名称首字母",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UploadResponse": {
+                "properties": {
+                    "url": {
+                        "description": "素材URL地址",
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -201,5 +250,23 @@
                 "type": "object"
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "验证码",
+            "description": "验证码"
+        },
+        {
+            "name": "地区",
+            "description": "地区"
+        },
+        {
+            "name": "短信",
+            "description": "短信"
+        },
+        {
+            "name": "素材",
+            "description": "素材"
+        }
+    ]
 }
