@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "/api/common/",
+            "url": "https://demo.phpmall.net/api/common/",
             "description": "开发环境"
         }
     ],

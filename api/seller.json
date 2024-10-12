@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "/api/seller/",
+            "url": "https://demo.phpmall.net/api/seller/",
             "description": "开发环境"
         }
     ],
