@@ -37,13 +37,13 @@ jobs:
       - uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消注释
         name: Install pnpm
         with:
-          version: 8
+          version: 9
           run_install: false
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - name: Setup Pages
@@ -54,6 +54,9 @@ jobs:
 
       - name: Build with VitePress
         run: pnpm docs:build
+
+      - name: Add API directory
+        run: cp -a api .vitepress/dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
